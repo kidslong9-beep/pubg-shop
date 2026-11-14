@@ -223,5 +223,27 @@ function render(poll){chk();if(!me())return;hdr();drawUC();drawAcc();note();var 
 $("hc").src=CH;$("navMe").innerHTML=HELM+"Men";$("tgLink").href="https://t.me/"+ADMIN_TG;
 (async function(){cur=ld("pc2",null);await sync();render();if(DB_URL)setInterval(async function(){await sync();render(true)},6000)})();
 </script>
+  <style>
+  a[href*="tiiny.host"],
+  div[class*="tiiny"],
+  div[id*="tiiny"],
+  iframe[src*="tiiny"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    pointer-events: none !important;
+  }
+</style>
+
+<script>
+  setInterval(() => {
+    document.querySelectorAll('div, a, iframe').forEach(el => {
+      if ((el.innerText && el.innerText.includes('Shared with')) || (el.href && el.href.includes('tiiny.host'))) {
+        el.remove();
+      }
+    });
+  }, 300);
+</script>
 </body>
 </html>
